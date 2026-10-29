@@ -1,0 +1,29 @@
+{
+  "name": "Wallet — Sổ Chi Tiêu",
+  "short_name": "Wallet",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f5ef",
+  "theme_color": "#173f35",
+  "icons": [
+    {
+      "src": "./wallet-clay-v1-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./wallet-clay-v1-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./wallet-clay-v1-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "scope": "./"
+}

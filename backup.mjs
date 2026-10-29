@@ -1,0 +1,3 @@
+import {validate,migrateLegacy} from './ledger.mjs';
+export function backupEnvelope(data){validate(data);return {format:'so-chi-tieu-v2',exportedAt:new Date().toISOString(),data:JSON.parse(JSON.stringify(data))};}
+export function parseBackup(text){let v;try{v=JSON.parse(text)}catch{throw Error('Tệp không phải JSON hợp lệ.');}if(!v||typeof v!=='object')throw Error('Không phải bản sao lưu Sổ Chi Tiêu.');if(v.format&&v.format!=='so-chi-tieu-v2')throw Error('Định dạng bản sao lưu chưa được hỗ trợ.');if(v.data?.version===2||v.version===2){let data=v.data||v;validate(data);return {data};}if(Array.isArray(v.transactions)){migrateLegacy(v);return {legacy:v};}throw Error('Không phải bản sao lưu Sổ Chi Tiêu được hỗ trợ.');}
